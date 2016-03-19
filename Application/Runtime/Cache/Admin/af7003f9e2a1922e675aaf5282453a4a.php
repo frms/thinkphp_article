@@ -36,7 +36,7 @@
             </tr>
             <tr id="product1">
                 <td>1</td>
-                <td><a href="#">苹果（APPLE）iPhone 4S</a></td>
+                <td><a href="#">苹果</a></td>
                 <td>100</td>
                 <td>3888</td>
                 <td><img src="/thinkphp/Application/Admin/Public/img/20121018-174034-58977.jpg" height="60" width="60"></td>
