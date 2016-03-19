@@ -5,7 +5,6 @@ use Think\Controller;
 class ArticleController extends BaseController {
 	public function add() {
 		$this->display('add');
-		echo "string";
 	}
 
 	public function addArticle() {

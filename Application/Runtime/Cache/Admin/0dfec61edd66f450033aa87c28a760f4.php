@@ -6,7 +6,7 @@
 
         <title>用户登录</title>
 
-        <link href="/thinkphp/Application/Admin/Public/css/User_Login.css" type="text/css" rel="stylesheet" />
+        <link href="/thinkphp_article/Application/Admin/Public/css/User_Login.css" type="text/css" rel="stylesheet" />
     </head><body id="userlogin_body">
         <div></div>
         <div id="user_login">
@@ -17,7 +17,7 @@
                         <li class="user_top_c"></li>
                         <li class="user_top_r"></li></ul>
                 </dd><dd id="user_main">
-                    <form action="/thinkphp/index.php/Admin/Login/login" method="post">
+                    <form action="/thinkphp_article/index.php/Admin/Login/login" method="post">
                         <ul>
                             <li class="user_main_l"></li>
                             <li class="user_main_c">
@@ -36,14 +36,14 @@
                                         <li class="user_main_text">验证码： </li>
                                         <li class="user_main_input">
                                             <input class="TxtValidateCodeCssClass" id="captcha" name="captcha" type="text">
-                                            <img src="/thinkphp/index.php/Admin/Login/code" onclick=this.src="/thinkphp/index.php/Admin/Login/code/"+Math.random() style="cursor: pointer;" title="看不清？点击更换另一张..." alt="" />
+                                            <img src="/thinkphp_article/index.php/Admin/Login/code" onclick=this.src="/thinkphp_article/index.php/Admin/Login/code/"+Math.random() style="cursor: pointer;" title="看不清？点击更换另一张..." alt="" />
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="user_main_r">
 
-                                <input style="border: medium none; background: url('/thinkphp/Application/Admin/Public/img/user_botton.gif') repeat-x scroll left top transparent; height: 122px; width: 111px; display: block; cursor: pointer;" value="" type="submit">
+                                <input style="border: medium none; background: url('/thinkphp_article/Application/Admin/Public/img/user_botton.gif') repeat-x scroll left top transparent; height: 122px; width: 111px; display: block; cursor: pointer;" value="" type="submit">
                             </li>
                         </ul>
                     </form>
