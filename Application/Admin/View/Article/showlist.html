@@ -39,13 +39,20 @@
             <volist name="list" id="vo">
             <tr id="product1">
                 <td>{$vo.id}</td>
-                <td><a href="#">{$vo.title}</a></td>
+                <td><a href="__MODULE__/Article/xiugai/id/{$vo.id}/">{$vo.title}</a></td>
                 <td>{$vo.author}</td>
               
-                <td><img src="__ROOT__{$vo.pic}" height="40" width="40"></td>
+                
+
+                <if condition="$vo[pic] != '' ">
+                        <td><img src="__ROOT__{$vo.pic}" height="40" width="40"></td>
+                    <else />
+                        <td>暂无缩略图</td>
+                    </if>
+
                 <td>{$vo.typename}</td>
                 <td>{$vo.time}</td>
-                <td><a href="__MODULE__/Article/xiugai">修改</a></td>
+                <td><a href="__MODULE__/Article/xiugai/id/{$vo.id}/">修改</a></td>
                 <td><a href="__MODULE__/Article/delete/id/{$vo.id}/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></td>
             </tr>
             </volist>

@@ -79,4 +79,61 @@ class ArticleController extends BaseController {
 		}
 
 	}
+	public function xiugai() {
+		$id = I('id');
+		$Form = M('article');
+		// 读取数据
+		$data = $Form->find($id);
+		if ($data) {
+			$this->assign('data', $data); // 模板变量赋值
+		} else {
+			$this->error('数据错误');
+		}
+
+		$this->assign('data', $data);
+
+		$type = M('type');
+		$res = $type->select();
+		$this->assign('list', $res);
+
+		$this->display('xiugai');
+
+	}
+
+	public function updateArticle() {
+		$data['id'] = I('id');
+		$data['title'] = I('title');
+		$data['author'] = I('author');
+		$data['new'] = I('new');
+		$data['hot'] = I('hot');
+		$data['des'] = I('des');
+		$data['typeid2'] = I('typeid');
+		$data['time'] = time();
+		if ($_FILES['pic']['tmp_name'] != "") {
+			$upload = new \Think\Upload(); // 实例化上传类
+			$upload->maxSize = 3145728; // 设置附件上传大小
+			$upload->exts = array('jpg', 'gif', 'png', 'jpeg'); // 设置附件上传类型
+			$upload->rootPath = './';
+			$upload->savePath = './Public/Uploads/'; // 设置附件上传目录    // 上传单个文件
+			$info = $upload->uploadOne($_FILES['pic']);
+			if (!$info) {
+				$this->error($upload->getError());
+			} else {
+				// 上传成功 获取上传文件信息
+				$data['pic'] = $info['savepath'] . $info['savename'];
+			}
+		}
+		$Form = D('article');
+		if ($Form->create($data)) {
+			$result = $Form->save();
+			if ($result) {
+				$this->success('操作成功！');
+			} else {
+				$this->error('写入错误！');
+			}
+		} else {
+			$this->error($Form->getError());
+		}
+	}
+
 }
