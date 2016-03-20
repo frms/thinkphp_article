@@ -15,7 +15,7 @@
         <span>
             <span style="float: left;">当前位置是：商品管理-》商品列表</span>
             <span style="float: right; margin-right: 8px; font-weight: bold;">
-                <a style="text-decoration: none;" href="/thinkphp_article/admin.php/Type/tianjia" target="main">【添加栏目】</a>
+                <a style="text-decoration: none;" href="/thinkphp_article/index.php/Admin/Type/tianjia" target="main">【添加栏目】</a>
             </span>
         </span>
     </div>
@@ -33,10 +33,10 @@
             </tr>
             <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr id="product1">
                 <td><?php echo ($vo["typeid"]); ?></td>
-                <td><a href="/thinkphp_article/admin.php/Type/xiugai/id/<?php echo ($vo["typeid"]); ?>/type/<?php echo ($vo["typename"]); ?>"><?php echo ($vo["typename"]); ?></a></td>
+                <td><a href="/thinkphp_article/index.php/Admin/Type/xiugai/id/<?php echo ($vo["typeid"]); ?>/type/<?php echo ($vo["typename"]); ?>"><?php echo ($vo["typename"]); ?></a></td>
               
-                <td><a href="/thinkphp_article/admin.php/Type/xiugai/id/<?php echo ($vo["typeid"]); ?>/type/<?php echo ($vo["typename"]); ?>">修改</a></td>
-                <td><a href="/thinkphp_article/admin.php/Type/delete/id/<?php echo ($vo["typeid"]); ?>/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></td>
+                <td><a href="/thinkphp_article/index.php/Admin/Type/xiugai/id/<?php echo ($vo["typeid"]); ?>/type/<?php echo ($vo["typename"]); ?>">修改</a></td>
+                <td><a href="/thinkphp_article/index.php/Admin/Type/delete/id/<?php echo ($vo["typeid"]); ?>/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></td>
             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
             <tr>
                 <td colspan="20" style="text-align: center;">
