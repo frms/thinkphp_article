@@ -33,11 +33,11 @@
             </tr>
             <volist name="list" id="vo">
             <tr id="product1">
-                <td>{$vo.id}</td>
-                <td><a href="__MODULE__/Type/xiugai/id/{$vo.id}/type/{$vo.type}">{$vo.type}</a></td>
+                <td>{$vo.typeid}</td>
+                <td><a href="__MODULE__/Type/xiugai/id/{$vo.typeid}/type/{$vo.typename}">{$vo.typename}</a></td>
               
-                <td><a href="__MODULE__/Type/xiugai/id/{$vo.id}/type/{$vo.type}">修改</a></td>
-                <td><a href="__MODULE__/Type/delete/id/{$vo.id}/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></td>
+                <td><a href="__MODULE__/Type/xiugai/id/{$vo.typeid}/type/{$vo.typename}">修改</a></td>
+                <td><a href="__MODULE__/Type/delete/id/{$vo.typeid}/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></td>
             </tr>
             </volist>
             <tr>

@@ -22,43 +22,43 @@
             <form action="__CONTROLLER__/addArticle" method="post" enctype="multipart/form-data">
             <table border="1" width="100%" class="table_a">
                 <tr>
-                    <td>商品名称</td>
-                    <td><input type="text" name="f_goods_name" /></td>
+                    <td>标题</td>
+                    <td><input type="text" name="title" /></td>
+                </tr>
+                <tr>
+                    <td>作者</td>
+                    <td><input type="text" name="author" /></td>
+                </tr>
+                <tr>
+                    <td>热门</td>
+                    <td><input type="checkbox" name="hot" value="1" /></td>
+                </tr>
+                <tr>
+                    <td>最新</td>
+                    <td><input type="checkbox" name="new" value="1" /></td>
                 </tr>
                 <tr>
                     <td>商品分类</td>
                     <td>
-                        <select name="f_goods_category_id">
+                        <select name="typeid">
                             <option value="0">请选择</option>
-                            {foreach from=$s_category_info key=_k item=_v}
-                            <option value="{$_v.category_id}">{$_v.category_name}</option>
-                            {/foreach}
+                           
+                            <volist name="list" id="vo">
+                            <option value="{$vo.typeid}">{$vo.typename}</option>
+                            </volist>
                         </select>
                     </td>
                 </tr>
+               
+               
                 <tr>
-                    <td>商品品牌</td>
+                    <td>文章图片</td>
+                    <td><input type="file" name="pic" /></td>
+                </tr>
+                <tr>
+                    <td>文章内容</td>
                     <td>
-                        <select name="f_goods_brand_id">
-                            <option value="0">请选择</option>
-                            {foreach from=$s_brand_info key=_k item=_v}
-                            <option value="{$_v.brand_id}">{$_v.brand_name}</option>
-                            {/foreach}
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>商品价格</td>
-                    <td><input type="text" name="f_goods_price" /></td>
-                </tr>
-                <tr>
-                    <td>商品图片</td>
-                    <td><input type="file" name="f_goods_image" /></td>
-                </tr>
-                <tr>
-                    <td>商品详细描述</td>
-                    <td>
-                        <textarea name="f_goods_introduce"></textarea>
+                        <textarea name="des"></textarea>
                     </td>
                 </tr>
                 
