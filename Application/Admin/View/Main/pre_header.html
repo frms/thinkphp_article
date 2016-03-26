@@ -1,0 +1,26 @@
+	<div class="container-fluid">
+		<div class="page-header">
+			<div class="row">
+				<div class="col-sm-6">
+					<h1>0533cl <small>后台管理</small></h1>
+				</div>
+				<div class="col-sm-6" >
+					<ul class="nav nav-pills">
+
+						<li role="presentation" class="dropdown" style="float: right; padding-top: 25px;padding-right: 80px;" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+								{$admin.username}<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">修改密码</a></li>
+								<li><a href="#">dfs</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a onclick="if (confirm('确定要退出吗？')) return true; else return false;" href="__MODULE__/Login/logout" target=_top>退出系统</a> </li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+			</div>	
+		</div>
+	</div>

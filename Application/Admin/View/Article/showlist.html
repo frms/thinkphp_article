@@ -3,11 +3,8 @@
 <!-- 引入头部 -->
 <include file="Main/header" />
 <body>
-    <div class="container-fluid">
-        <div class="page-header">
-            <h1>0533cl <small>后台管理</small></h1>
-        </div>
-    </div>
+   <!-- 引入后台头部 -->
+<include file="Main/pre_header" />
     <div>
 
         <div class="container-fluid">
@@ -31,8 +28,8 @@
                                 </thead>
                                 <tbody>
                                     <volist name="list" id="vo">
-                                        <tr class="active">
-                                            <td class="active">{$vo.articletitle}</th>
+                                        <tr>
+                                            <td>{$vo.articletitle}</th>
                                            
                                              <if condition="$vo[pic] != '' ">
                                                     <td><img src="__ROOT__{$vo.pic}" height="40" width="60"></td>
