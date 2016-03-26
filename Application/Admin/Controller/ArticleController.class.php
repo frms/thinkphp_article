@@ -78,7 +78,7 @@ class ArticleController extends BaseController {
 		}
 
 	}
-	public function xiugai() {
+	public function edit() {
 		$id = I('id');
 		$Form = M('article');
 		// 读取数据
@@ -95,19 +95,16 @@ class ArticleController extends BaseController {
 		$res = $type->select();
 		$this->assign('list', $res);
 
-		$this->display('xiugai');
+		$this->display('edit');
 
 	}
 
 	public function updateArticle() {
 		$data['id'] = I('id');
-		$data['title'] = I('title');
-		$data['author'] = I('author');
-		$data['new'] = I('new');
-		$data['hot'] = I('hot');
-		$data['des'] = I('des');
-		$data['typeid2'] = I('typeid');
-		$data['time'] = time();
+		$data['articletitle'] = I('articletitle');
+		$data['desj'] = I('desj');
+		$data['articlecontent'] = I('articlecontent');
+		//$data['time'] = time();
 		if ($_FILES['pic']['tmp_name'] != "") {
 			$upload = new \Think\Upload(); // 实例化上传类
 			$upload->maxSize = 3145728; // 设置附件上传大小
