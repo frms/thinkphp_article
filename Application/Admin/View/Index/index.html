@@ -1,21 +1,71 @@
-<!doctype html public "-//w3c//dtd xhtml 1.0 frameset//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-frameset.dtd">
-<html>
-    <head>
-        <meta http-equiv=content-type content="text/html; charset=utf-8" />
-        <meta http-equiv=pragma content=no-cache />
-        <meta http-equiv=cache-control content=no-cache />
-        <meta http-equiv=expires content=-1000 />
-        
-        <title>管理中心 v1.0</title>
-    </head>
-    
-    <frameset border=0 framespacing=0 rows="60, *" frameborder=0>
-        <frame name=head src="__CONTROLLER__/head" frameborder=0 noresize scrolling=no>
-            <frameset cols="170, *">
-                <frame name=left src="__CONTROLLER__/left" frameborder=0 noresize />
-                <frame name=main src="__CONTROLLER__/right" frameborder=0 noresize scrolling=yes />
-            </frameset>
-    </frameset>
-    <noframes>
-    </noframes>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 引入头部 -->
+<include file="Main/header" />
+
+<body>
+	<div class="container-fluid">
+		<div class="page-header">
+			<h1>0533cl <small>后台管理</small></h1>
+		</div>
+	</div>
+	<div>
+
+		<div class="container-fluid">
+			<div class="row">
+
+				<!-- 引入侧边栏 -->
+				<include file="Main/sidebar" />
+				
+				<div class="col-md-10">
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">当前位置：后台首页</h3>
+						</div>
+
+						<div class="panel-body">
+
+							<div class="row">
+								<div class="col-md-2">
+									<img src="1342405015.jpg" alt="admin" class="img-circle" style="height: 100px;width: 100px; text-align: left;">
+								</div>
+								<div class="col-md-3">
+									当前时间：2008-12-27 17:03:55
+									<br>
+									欢迎进入网站管理中心！
+								</div>
+
+							</div>
+							<br>
+							
+
+							<div class="panel panel-default">
+								<!-- Default panel contents -->
+								<div class="panel-heading">您的相关信息</div>
+								<div class="panel-body">
+
+									<p>登陆帐号：	admin</p>
+									<p>真实姓名：	admin</p>
+									<p>注册时间：	2007-7-25 15:02:04</p>
+									<p>登陆次数：	58</p>
+									<p>上线时间：	2008-12-27 17:02:54</p>
+									<abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+								</div>
+								
+
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div> 
+	<!-- 引入页脚 -->
+	<include file="Main/footer" />
+</div>
+</body>
 </html>

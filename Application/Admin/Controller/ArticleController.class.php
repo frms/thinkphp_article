@@ -5,7 +5,7 @@ use Think\Controller;
 class ArticleController extends BaseController {
 	public function add() {
 
-		$type = D('type');
+		$type = D('article');
 		$res = $type->select();
 		$this->assign('list', $res);
 		$this->display('add');
@@ -19,6 +19,7 @@ class ArticleController extends BaseController {
 		$Page = new \Think\Page($count, 5); // 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$Page->setConfig('prev', '上一页');
 		$Page->setConfig('next', '下一页');
+		$Page->setConfig('theme', "<ul class='pagination'></li><li>%FIRST%</li><li>%UP_PAGE%</li><li>%LINK_PAGE%</li><li>%DOWN_PAGE%</li><li>%END%</li><li><a> %HEADER%  %NOW_PAGE%/%TOTAL_PAGE% 页</a></ul>");
 		$show = $Page->show(); // 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
 		$list = $User->order('id asc')->limit($Page->firstRow . ',' . $Page->listRows)->relation(true)->select();
 		$this->assign('list', $list); // 赋值数据集
@@ -26,13 +27,10 @@ class ArticleController extends BaseController {
 		$this->display('showlist');
 	}
 	public function addArticle() {
-		$data['title'] = I('title');
-		$data['author'] = I('author');
-		$data['new'] = I('new');
-		$data['hot'] = I('hot');
-		$data['des'] = I('des');
-		$data['typeid2'] = I('typeid');
-		$data['time'] = time();
+		$data['articletitle'] = I('articletitle');
+		$data['desj'] = I('desj');
+		$data['articlecontent'] = I('articlecontent');
+		//$data['time'] = time();
 		if ($_FILES['pic']['tmp_name'] != "") {
 			$upload = new \Think\Upload(); // 实例化上传类
 			$upload->maxSize = 3145728; // 设置附件上传大小
@@ -45,13 +43,14 @@ class ArticleController extends BaseController {
 			} else {
 				// 上传成功 获取上传文件信息
 				$data['pic'] = $info['savepath'] . $info['savename'];
+				//echo $data['pic'];
 			}
 		}
 		$Form = D('article');
 		if ($Form->create($data)) {
 			$result = $Form->add();
 			if ($result) {
-				$this->success('操作成功！');
+				$this->success('操作成功！', U('Article/showlist'));
 			} else {
 				$this->error('写入错误！');
 			}
@@ -92,7 +91,7 @@ class ArticleController extends BaseController {
 
 		$this->assign('data', $data);
 
-		$type = M('type');
+		$type = M('nav');
 		$res = $type->select();
 		$this->assign('list', $res);
 

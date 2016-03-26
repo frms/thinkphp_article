@@ -1,74 +1,88 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-    <head>
-        <title>添加商品</title>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8">
-        <link href="__ROOT__/Application/Admin/Public/css/mine.css" type="text/css" rel="stylesheet">
-    </head>
-
-    <body>
-
-        <div class="div_head">
-            <span>
-                <span style="float:left">当前位置是：商品管理-》添加商品信息</span>
-                <span style="float:right;margin-right: 8px;font-weight: bold">
-                    <a style="text-decoration: none" href="./admin.php?c=goods&a=showlist">【返回】</a>
-                </span>
-            </span>
+<!DOCTYPE html>
+<html lang="en">
+<!-- 引入头部 -->
+<include file="Main/header" />
+<body>
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1>0533cl <small>后台管理</small></h1>
         </div>
-        <div></div>
+    </div>
+    <div>
 
-        <div style="font-size: 13px;margin: 10px 5px">
-            <form action="__CONTROLLER__/addArticle" method="post" enctype="multipart/form-data">
-            <table border="1" width="100%" class="table_a">
-                <tr>
-                    <td>标题</td>
-                    <td><input type="text" name="title" /></td>
-                </tr>
-                <tr>
-                    <td>作者</td>
-                    <td><input type="text" name="author" /></td>
-                </tr>
-                <tr>
-                    <td>热门</td>
-                    <td><input type="checkbox" name="hot" value="1" /></td>
-                </tr>
-                <tr>
-                    <td>最新</td>
-                    <td><input type="checkbox" name="new" value="1" /></td>
-                </tr>
-                <tr>
-                    <td>商品分类</td>
-                    <td>
-                        <select name="typeid">
-                            <option value="0">请选择</option>
-                           
-                            <volist name="list" id="vo">
-                            <option value="{$vo.typeid}">{$vo.typename}</option>
-                            </volist>
-                        </select>
-                    </td>
-                </tr>
-               
-               
-                <tr>
-                    <td>文章图片</td>
-                    <td><input type="file" name="pic" /></td>
-                </tr>
-                <tr>
-                    <td>文章内容</td>
-                    <td>
-                        <textarea name="des"></textarea>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" value="添加">
-                    </td>
-                </tr>  
-            </table>
-            </form>
-        </div>
-    </body>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- 引入侧边栏 -->
+                <include file="Main/sidebar" />
+                <div class="col-md-10">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">当前位置：后台首页</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                         <div class="col-sm-10">
+                             
+                             <form action="__MODULE__/Article/addArticle" method="POST" class="form-horizontal" role="form"  enctype="multipart/form-data">
+                                     <div class="form-group">
+                                         <legend>添加文章</legend>
+                                     </div>
+                             
+                                     <div class="form-group">
+                                         <div class="col-sm-2">
+                                             文章标题
+                                         </div>
+                                         <div class="col-sm-6">
+                                             <input type="text" name="articletitle" id="input" class="form-control">
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <div class="col-sm-2">
+                                             文章简述
+                                         </div>
+                                         <div class="col-sm-6">
+                                             <textarea name="desj" class="form-control" rows="2"></textarea>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <div class="col-sm-2">
+                                             文章图片
+                                         </div>
+                                         <div class="col-sm-6">
+                                             <input type="file" id="exampleInputFile" name="pic">
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <div class="col-sm-2">
+                                             文章内容
+                                         </div>
+                                         <div class="col-sm-6">
+                                             <textarea class="form-control" rows="4" name="articlecontent"></textarea>
+                                         </div>
+                                     </div>
+                             
+                                     <div class="form-group">
+                                         <div class="col-sm-10 col-sm-offset-2">
+                                             <button type="submit" class="btn btn-primary">Submit</button>
+                                         </div>
+                                     </div>
+                             </form>
+                         </div>
+                     </div>
+
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </div> 
+ <!-- 引入页脚 -->
+ <include file="Main/footer" />
+</div>
+</body>
 </html>

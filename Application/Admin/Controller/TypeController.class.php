@@ -11,7 +11,7 @@ class TypeController extends BaseController {
 	}
 
 	public function showtype() {
-		$User = M('type');
+		$User = M('nav');
 		//$list = $User->limit(10)->order('id asc')->select();
 		//$this->assign('list',$list);
 
@@ -19,8 +19,9 @@ class TypeController extends BaseController {
 		$Page = new \Think\Page($count, 5); // 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$Page->setConfig('prev', '上一页');
 		$Page->setConfig('next', '下一页');
+		$Page->setConfig('theme', "<ul class='pagination'></li><li>%FIRST%</li><li>%UP_PAGE%</li><li>%LINK_PAGE%</li><li>%DOWN_PAGE%</li><li>%END%</li><li><a> %HEADER%  %NOW_PAGE%/%TOTAL_PAGE% 页</a></ul>");
 		$show = $Page->show(); // 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$list = $User->order('typeid asc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
+		$list = $User->order('sort asc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
 		$this->assign('list', $list); // 赋值数据集
 		$this->assign('page', $show); // 赋值分页输出
 		$this->display('showtype');
@@ -73,7 +74,7 @@ class TypeController extends BaseController {
 	}
 
 	public function delete() {
-		$Form = M('type');
+		$Form = M('nav');
 		$result = $Form->save();
 		if ($Form->delete(I('id'))) {
 			$this->success('操作成功！');

@@ -1,69 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-    <title>会员列表</title>
-
-    <link href="__ROOT__/Application/Admin/Public/css/mine.css" type="text/css" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="en">
+<!-- 引入头部 -->
+<include file="Main/header" />
 <body>
-    <style>
-        .tr_color{background-color: #9F88FF}
-    </style>
-    <div class="div_head">
-        <span>
-            <span style="float: left;">当前位置是：商品管理-》商品列表</span>
-            <span style="float: right; margin-right: 8px; font-weight: bold;">
-                <a style="text-decoration: none;" href="__MODULE__/Article/add" target="main">【添加文章】</a>
-            </span>
-        </span>
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1>0533cl <small>后台管理</small></h1>
+        </div>
     </div>
-    <div></div>
-    
-    <div style="font-size: 13px; margin: 10px 5px;">
-        <table class="table_a" border="1" width="100%">
-            <tbody><tr style="font-weight: bold;">
-                <td>序号</td>
-                <td>文章名称</td>
-                <td>作者</td>
-              
-                <td>缩略图</td>
-                <td>分类</td>
-                <td>创建时间</td>
-                <td align="center" colspan="20">操作</td>
-            </tr>
+    <div>
 
-           
+        <div class="container-fluid">
+            <div class="row">
+                <!-- 引入侧边栏 -->
+                <include file="Main/sidebar" />
+                <div class="col-md-10">
 
-            <volist name="list" id="vo">
-            <tr id="product1">
-                <td>{$vo.id}</td>
-                <td><a href="__MODULE__/Article/xiugai/id/{$vo.id}/">{$vo.title}</a></td>
-                <td>{$vo.author}</td>
-              
-                
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">当前位置：后台首页</h3>
+                        </div>
 
-                <if condition="$vo[pic] != '' ">
-                        <td><img src="__ROOT__{$vo.pic}" height="40" width="40"></td>
-                    <else />
-                        <td>暂无缩略图</td>
-                    </if>
+                        <div class="panel-body">
 
-                <td>{$vo.typename}</td>
-                <td>{$vo.time}</td>
-                <td><a href="__MODULE__/Article/xiugai/id/{$vo.id}/">修改</a></td>
-                <td><a href="__MODULE__/Article/delete/id/{$vo.id}/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></td>
-            </tr>
-            </volist>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>文章标题</th><th>文章图片</th><th>操作</th><th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <volist name="list" id="vo">
+                                        <tr class="active">
+                                            <td class="active">{$vo.articletitle}</th>
+                                           
+                                             <if condition="$vo[pic] != '' ">
+                                                    <td><img src="__ROOT__{$vo.pic}" height="40" width="60"></td>
+                                                <else />
+                                                    <td>暂无缩略图</td>
+                                            </if>
+                                           
 
-            <tr>
-                <td colspan="20" style="text-align: center;">
-                   {$page}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                                            <th><a href="__MODULE__/Type/xiugai/id/{$vo.sort}/type/{$vo.navname}">修改</a></th>
+                                            <th><a href="__MODULE__/Type/delete/id/{$vo.id}/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></th>
+                                        </tr>
+                                    </volist>
+                                
+                                </tbody>
+                            </table>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center;">
+                                <nav>{$page}</nav>
+                            </div>
+                            
+                            <a class="btn btn-primary" href="__MODULE__/Article/add" role="button">添加文章</a>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> 
+   <!-- 引入页脚 -->
+    <include file="Main/footer" />
 </div>
 </body>
 </html>

@@ -12,7 +12,7 @@ class ArticleModel extends RelationModel {
 	protected $_link = array(
 		'Dept' => array(
 			'mapping_type' => self::BELONGS_TO,
-			'class_name' => 'type',
+			'class_name' => 'nav',
 			'foreign_key' => 'typeid2',
 			'as_fields' => 'typename',
 		),
