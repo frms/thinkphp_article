@@ -16,12 +16,12 @@ class ArticleController extends BaseController {
 		//$this->assign('list',$list);
 
 		$count = $User->count(); // 查询满足要求的总记录数
-		$Page = new \Think\Page($count, 5); // 实例化分页类 传入总记录数和每页显示的记录数(25)
+		$Page = new \Think\Page($count, 10); // 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$Page->setConfig('prev', '上一页');
 		$Page->setConfig('next', '下一页');
 		$Page->setConfig('theme', "<ul class='pagination'></li><li>%FIRST%</li><li>%UP_PAGE%</li><li>%LINK_PAGE%</li><li>%DOWN_PAGE%</li><li>%END%</li><li><a> %HEADER%  %NOW_PAGE%/%TOTAL_PAGE% 页</a></ul>");
 		$show = $Page->show(); // 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$list = $User->order('id asc')->limit($Page->firstRow . ',' . $Page->listRows)->relation(true)->select();
+		$list = $User->order('id desc')->limit($Page->firstRow . ',' . $Page->listRows)->relation(true)->select();
 		$this->assign('list', $list); // 赋值数据集
 		$this->assign('page', $show); // 赋值分页输出
 		$this->display('showlist');
@@ -36,7 +36,7 @@ class ArticleController extends BaseController {
 			$upload->maxSize = 3145728; // 设置附件上传大小
 			$upload->exts = array('jpg', 'gif', 'png', 'jpeg'); // 设置附件上传类型
 			$upload->rootPath = './';
-			$upload->savePath = './Public/Uploads/'; // 设置附件上传目录    // 上传单个文件
+			$upload->savePath = './Uploads/image/'; // 设置附件上传目录    // 上传单个文件
 			$info = $upload->uploadOne($_FILES['pic']);
 			if (!$info) {
 				$this->error($upload->getError());
@@ -110,7 +110,7 @@ class ArticleController extends BaseController {
 			$upload->maxSize = 3145728; // 设置附件上传大小
 			$upload->exts = array('jpg', 'gif', 'png', 'jpeg'); // 设置附件上传类型
 			$upload->rootPath = './';
-			$upload->savePath = './Public/Uploads/'; // 设置附件上传目录    // 上传单个文件
+			$upload->savePath = './Uploads/image/'; // 设置附件上传目录    // 上传单个文件
 			$info = $upload->uploadOne($_FILES['pic']);
 			if (!$info) {
 				$this->error($upload->getError());

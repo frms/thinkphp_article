@@ -3,6 +3,13 @@
 <!-- 引入头部 -->
 <include file="Main/header" />
 <body>
+  <script type="text/javascript">
+    $(function(){
+      var ue = UE.getEditor('container',{
+        serverUrl :'{:U('Admin/Article/ueditor')}'
+      });
+    })
+  </script>
   <!-- 引入后台头部 -->
 <include file="Main/pre_header" />
   <div>
