@@ -2,16 +2,20 @@
 namespace Home\Controller;
 use Think\Controller;
 
-class ArticleController extends Controller {
+class ArticleController extends BaseController {
 	public function index() {
 
-		$type = D('type');
-		$type = $type->select();
-		$this->assign('type', $type);
+		$id = I('id');
+		$Form = M('article');
+		// 读取数据
+		$data = $Form->find($id);
+		if ($data) {
+			$this->assign('data', $data); // 模板变量赋值
+		} else {
+			$this->error('数据错误');
+		}
 
-		$article = D('article');
-		$article = $article->where('new=1')->limit(10)->select();
-		$this->assign('article', $article);
+		$this->assign('data', $data);
 
 		$this->display('article');
 

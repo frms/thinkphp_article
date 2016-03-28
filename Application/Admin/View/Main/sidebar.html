@@ -7,19 +7,19 @@
 				首页         
 			</a>
 		</li>
-		<li class="<eq name="Think.const.ACTION_NAME" value="showlist" >active</eq><eq name="Think.const.ACTION_NAME" value="showtype" >active</eq>"
+		<li class="<eq name="Think.const.ACTION_NAME" value="showlist" >active</eq><eq name="Think.const.ACTION_NAME" value="showtype" >active</eq><eq name="Think.const.ACTION_NAME" value="config" >active</eq>"
 		    >
 			<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
 				<i class="glyphicon glyphicon-cog"></i>
-				系统管理
+				内容管理
 				<span class="pull-right glyphicon glyphicon-chevron-down"></span>
 			</a>
 			<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
 				<li><a href="#"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
 				<li><a href="{:U('Type/showtype')}"><i class="glyphicon glyphicon-th-list"></i>菜单管理</a></li>
 				<li><a href="{:U('Article/showlist')}"><i class="glyphicon glyphicon-asterisk"></i>文章管理</a></li>
-				<li><a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-				<li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+				<li><a href="{:U('Page/showlist')}"><i class="glyphicon glyphicon-edit"></i>单页管理</a></li>
+				<li><a href="{:U('Config/config')}"><i class="glyphicon glyphicon-eye-open"></i>系统设置</a></li>
 			</ul>
 		</li>
 		<li>

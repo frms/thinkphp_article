@@ -55,12 +55,11 @@ return array(
 	/* 数据库设置 */
 
 	'DB_TYPE' => 'mysql', // 数据库类型
-	'DB_HOST' => '45.62.109.178', // 服务器地址
+	'DB_HOST' => 'localhost', // 服务器地址
 	'DB_NAME' => 'amoee', // 数据库名
-	'DB_USER' => 'thinkphp2', // 用户名
-	'DB_PWD' => 'qPp4PtWD2tKtYeSa', // 密码
+	'DB_USER' => 'root', // 用户名
+	'DB_PWD' => '', // 密码
 	'DB_TYPE' => 'mysql', // 数据库类型
-	'DB_HOST' => '45.62.109.178', // 服务器地址
 	'DB_PORT' => 3306, // 端口
 	'DB_PREFIX' => 'am_', // 数据库表前缀
 	'DB_CHARSET' => 'utf8', // 数据库字符集
