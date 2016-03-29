@@ -42,8 +42,10 @@ class ArticleController extends BaseController {
 				$this->error($upload->getError());
 			} else {
 				// 上传成功 获取上传文件信息
-				$data['pic'] = $info['savepath'] . $info['savename'];
-				//echo $data['pic'];
+				$picpath = $info['savepath'] . $info['savename'];
+				$data['pic'] = substr($picpath, 1);
+				echo $data['pic'];
+				//return true;
 			}
 		}
 		$Form = D('article');

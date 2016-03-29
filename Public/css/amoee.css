@@ -1,4 +1,8 @@
 #bigbanner{background: url(../img/t0109c256387529ea0c.jpg) top center no-repeat;}
 .panel-footer{text-align: center;}
 #containone{padding-top: 15px; padding-bottom: 15px;}
+#containone img{width: 320px;height: 220px;}
 .panel-footer{margin-top: 15px;}
+.pagination li span{background: #ADD9FF;}
+.pagination li a span{    background-color: transparent;}
+.pagination li a span:hover{    background-color: transparent;}

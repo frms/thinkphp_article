@@ -10,7 +10,7 @@ class IndexController extends BaseController {
 		//$this->assign('list',$list);
 
 		$count = $article->count(); // 查询满足要求的总记录数
-		$Page = new \Think\Page($count, 1); // 实例化分页类 传入总记录数和每页显示的记录数(25)
+		$Page = new \Think\Page($count, 6); // 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$Page->setConfig('prev', 'Pre');
 		$Page->setConfig('next', 'Next');
 		$Page->setConfig('header', 'Total %TOTAL_ROW% Record');
