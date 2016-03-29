@@ -29,7 +29,7 @@
 						<h3><a href="__MODULE__/Article/index/id/{$vo.id}">{$vo.articletitle}</a></h3>
 					</div>
 					<div class="col-sm-12">
-						{$vo.desj}
+						{$vo.desj|substr=0,160}...
 					</div>
 				</div>
 			</volist>
