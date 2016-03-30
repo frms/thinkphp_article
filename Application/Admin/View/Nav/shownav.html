@@ -29,7 +29,7 @@
                                 <tbody>
                                     <volist name="list" id="vo">
                                         <tr>
-                                            <td>{$vo.sort}</th><th>{$vo.navname}</th><th><a href="__MODULE__/Type/xiugai/id/{$vo.sort}/type/{$vo.navname}">修改</a></th><th><a href="__MODULE__/Type/delete/id/{$vo.id}/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></th>
+                                            <td>{$vo.sort}</th><th>{$vo.navname}</th><th><a href="__MODULE__/Nav/edit/id/{$vo.id}/type/{$vo.navname}">修改</a></th><th><a href="__MODULE__/Nav/delete/id/{$vo.id}/" onclick="return confirm('你确定删除这个栏目吗？')">删除</a></th>
                                         </tr>
                                     </volist>
                                 
@@ -39,7 +39,7 @@
                                 <nav>{$page}</nav>
                             </div>
                             
-                            <a class="btn btn-primary" href="#" role="button">添加栏目</a>
+                            <a class="btn btn-primary" href="__URL__/add" role="button">添加栏目</a>
                         </div>
                         
                     </div>

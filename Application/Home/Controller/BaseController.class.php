@@ -14,6 +14,10 @@ class BaseController extends Controller {
 		$config = $config->where('id = 1')->find();
 		$this->assign('config', $config);
 
+		$page = M("page");
+		$page = $page->where('isshow = 1')->select();
+		$this->assign('pages', $page);
+
 	}
 
 }

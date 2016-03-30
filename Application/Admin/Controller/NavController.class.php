@@ -2,7 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 
-class TypeController extends BaseController {
+class NavController extends BaseController {
 	public function index() {
 		$this->display('index');
 	}
@@ -10,7 +10,7 @@ class TypeController extends BaseController {
 		$this->display('tianjia');
 	}
 
-	public function showtype() {
+	public function shownav() {
 		$User = M('nav');
 		//$list = $User->limit(10)->order('id asc')->select();
 		//$this->assign('list',$list);
@@ -24,11 +24,11 @@ class TypeController extends BaseController {
 		$list = $User->order('sort asc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
 		$this->assign('list', $list); // 赋值数据集
 		$this->assign('page', $show); // 赋值分页输出
-		$this->display('showtype');
+		$this->display('shownav');
 	}
-	public function xiugai() {
+	public function edit() {
 		$id = I('id');
-		$Form = M('type');
+		$Form = M('nav');
 		// 读取数据
 		$data = $Form->find($id);
 		if ($data) {
@@ -38,14 +38,14 @@ class TypeController extends BaseController {
 		}
 
 		$this->assign('data', $data);
-		$this->display('xiugai');
+		$this->display('edit');
 	}
-	public function addtype() {
-		$Form = D('type');
+	public function addnav() {
+		$Form = D('nav');
 		if ($Form->create()) {
 			$result = $Form->add();
 			if ($result) {
-				$this->success('操作成功！');
+				$this->success('操作成功！', U('Nav/shownav'));
 			} else {
 				$this->error('写入错误！');
 			}
@@ -55,16 +55,16 @@ class TypeController extends BaseController {
 		//echo "ha";
 	}
 
-	public function updatetype() {
+	public function updatenav() {
 
 		$data['id'] = I('id');
-		$data['type'] = I('type');
-		$data['test'] = I('test');
-		$Form = D('type');
+		$data['sort'] = I('sort');
+		$data['navname'] = I('navname');
+		$Form = D('nav');
 		if ($Form->create($data)) {
 			$result = $Form->save();
 			if ($result) {
-				$this->success('操作成功！');
+				$this->success('操作成功！', U('Nav/shownav'));
 			} else {
 				$this->error('写入错误！');
 			}

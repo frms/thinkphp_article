@@ -1,5 +1,6 @@
 #bigbanner{background: url(../img/bacground.jpg) top center no-repeat; text-align: center;}
-.panel-footer{text-align: center;}
+.panel-footer{text-align: center;height: 60px;}
+.panel-footer .col-md-12 a {padding:10px;}
 #containone{padding-top: 15px; padding-bottom: 15px;}
 #containone img{width: 320px;height: 220px;}
 .panel-footer{margin-top: 15px;}
