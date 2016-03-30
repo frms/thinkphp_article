@@ -1,6 +1,14 @@
 <head>
 	<meta charset="UTF-8">
-	<title>{$config.title} - {$config.keyword}</title>
+	<title>
+
+    <eq name="Think.const.CONTROLLER_NAME" value="Index">
+    {$config.title} - {$config.keyword}
+    <else/>
+    {$data.articletitle} - {$config.title}
+    </eq>
+
+    </title>
 	<meta name="keywords" content="{$config.keyword}" />
 	<meta name="description" content="{$data.description}" />
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
