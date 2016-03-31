@@ -6,13 +6,11 @@
  * Time: 下午2:41
  */
 
-
 // 评论显示替换表情标签
-function reFace($str){
-    for($i=1;$i<76;$i++){
+function reFace($str) {
+	for ($i = 1; $i < 76; $i++) {
 
-        $str = str_replace("[em_$i]","<img src='".__APP__."/Public/Face/$i.gif'/>",$str);
-    }
-    return $str;
+		$str = str_replace("[em_$i]", "<img src='" . __ROOT__ . "/Public/Face/$i.gif'/>", $str);
+	}
+	return $str;
 }
-
