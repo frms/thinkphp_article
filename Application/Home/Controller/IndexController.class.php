@@ -6,9 +6,6 @@ class IndexController extends BaseController {
 	public function index() {
 
 		$article = D('article');
-		//$list = $User->limit(10)->order('id asc')->select();
-		//$this->assign('list',$list);
-
 		$count = $article->where('isshow=1')->count(); // 查询满足要求的总记录数
 		$Page = new \Think\Page($count, 6); // 实例化分页类 传入总记录数和每页显示的记录数(25)
 		$Page->setConfig('prev', 'Pre');
@@ -19,7 +16,6 @@ class IndexController extends BaseController {
 		$list = $article->order('id desc')->where('isshow=1')->limit($Page->firstRow . ',' . $Page->listRows)->select();
 		$this->assign('list', $list); // 赋值数据集
 		$this->assign('page', $show); // 赋值分页输出
-
 		$this->display('index');
 
 	}

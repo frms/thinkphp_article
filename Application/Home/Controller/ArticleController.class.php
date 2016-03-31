@@ -5,10 +5,11 @@ use Think\Controller;
 class ArticleController extends BaseController {
 	public function index() {
 
-		$id = I('id');
+		$id = I('name');
 		$Form = M('article');
+		$map['url'] = I('name');
 		// 读取数据
-		$data = $Form->find($id);
+		$data = $Form->where($map)->find();
 		if ($data) {
 			$this->assign('data', $data); // 模板变量赋值
 		} else {
