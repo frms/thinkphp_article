@@ -4,8 +4,14 @@
 
     <eq name="Think.const.CONTROLLER_NAME" value="Index">
     {$config.title} - {$config.keyword}
-    <else/>
+    </eq>
+
+    <eq name="Think.const.CONTROLLER_NAME" value="Article">
     {$data.articletitle} - {$config.title}
+    </eq>
+
+    <eq name="Think.const.CONTROLLER_NAME" value="Page">
+    {$data.pagetitle} - {$config.title}
     </eq>
 
     </title>

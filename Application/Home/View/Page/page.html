@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 引入头部 -->
+<include file="Main/head" />
+
+<body>
+
+	<div class="jumbotron" id="bigbanner">
+		<div class="container">
+			<h1><a href="__ROOT__">{$config.title}</a></h1>
+			<p>{$config.keyword}</p>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="page-header">
+				  <h1>{$data.pagetitle}</h1>
+				</div>
+				<div class="col-sm-12">
+					{$data.pagecontent|htmlspecialchars_decode|stripslashes}
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+
+	<!-- 引入页脚 -->
+	<include file="Main/foot" />
+
+	
+	
+</body>
+</html>
