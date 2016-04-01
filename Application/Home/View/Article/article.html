@@ -32,53 +32,60 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="pinglun ">
-					<div class="pl" type="button" >
-						评论
-					</div>
-					<div class="collapse1">
-						<div class="well">
-							<form action="__CONTROLLER__/addComment" method="post" role="form"  enctype="multipart/form-data">
-								<input type="hidden" name="articleurl" value="{$data.url}"  />
-								<div class="input-group">
-									<span class="input-group">昵称</span>
-									<input type="text" class="name1 input-group" placeholder="昵称" name="username" value="{$username}">
-									<input type="hidden" class=" input-group" placeholder="" name="pid" value="0">
-								</div>
-								<div class="input-group">
-									<span class="emotion input-group">表情</span>
-								</div>
-								<div class="input-group">
-									<textarea class="comment" id="content-text" name="comment" rows="3" placeholder="请输入评论内容"></textarea>
-								</div>
-								<div class="input-group submit">
-									<button class="submit-btn" type="submit" >提交</button>
-								</div>
-							</form>
+
+				<div class="panel panel-default" style="text-align: left;">
+					<div class="panel-heading">Comment</div>
+					<div class="panel-body">
+						<div class="collapse1">
+							<div class="well">
+								<form action="__CONTROLLER__/addComment" method="post" role="form"  enctype="multipart/form-data">
+									<input type="hidden" name="articleurl" value="{$data.url}"  />
+									<div class="form-group">
+							
+										<input type="text" class="form-control" placeholder="Nickname" name="username" value="{$username}">
+										<input type="hidden" class=" input-group" placeholder="" name="pid" value="0">
+									</div>
+									<div class="form-group">
+										<span class="emotion input-group"><img src="__ROOT__/Public/Face/1.gif"></span>
+										<textarea class="form-control" rows="3" id="content-text" name="comment" placeholder="请输入评论内容"></textarea>
+									</div>
+									<div class="form-group">
+
+
+										<button class="btn btn-primary" type="submit" style="width:100px;height:35px ">Submit</button>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 
 
+				<input type="hidden" name="pid" value="{$vo.author}"/>			
+				<div class="panel panel-default"  style="text-align: left;">
+					<div class="panel-heading">
+						<h3 class="panel-title">Reply Display</h3>
+					</div>
+					<div class="panel-body" >
+						<volist name="commentList" id="vo">
 
-				<input type="hidden" name="pid" value="{$vo.author}"/>
-				<div >
-					<h2></h2>
-					<volist name="commentList" id="vo">
-						<eq name="vo.pid" value="0"><hr class="solidline"/><else/><hr class="dottedline"/></eq>
-						<div class="commentList "  style="padding-left:{$vo['level']-1}cm">
-							<div><span class="user">
-								<if condition="($vo.pauthor eq NULL)">{$vo.author}
-									<else /> {$vo.author}<span class="black" style="color: #000101">回复</span>{$vo.pauthor}
-								</if>
-							</span><a class="hf" id="{$vo.id}" style="float: right">回复</a><span  class="hftime">{$vo.time|date="Y-m-d",###}</span></div>
-							<div class="content">{$vo.content|reFace}</div>
+							<div class="panel <if condition="($vo['level'] eq 1)">panel-info <else /> panel-default</if> " style="margin-left:{$vo['level']-1}cm;text-align: left;">
+								<div class="panel-heading">
+									<span class="user">
+										<if condition="($vo.pauthor eq NULL)">{$vo.author}
+											<else /> {$vo.author}<span class="black" style="color: #000101">Reply</span>{$vo.pauthor}
+										</if>
+									</span><a class="hf" id="{$vo.id}" style="float: right">Reply</a><span  class="hftime">{$vo.time|date="Y-m-d",###}</span>
+								</div>
+								<div class="panel-body">{$vo.content|reFace}</div>
+							</div>
 
-						</div>
+							
 
-					</volist>
+						</volist>
+						<hr>
+					</div>
 				</div>
-
 
 				<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
 				<script type="text/javascript" src="__PUBLIC__/js/jquery.qqFace.js" ></script>
@@ -89,13 +96,13 @@
                 assign: 'content-text', //赋予到具体位置
                 path: '__PUBLIC__/Face/'    //表情路径
             });
-            $(".hf").click(//点击回复按钮事件
+            $(".hf").click(//点击Reply按钮事件
             	function(e) {
             		var $this = $(this);
             		if ($this.parent().parent().next().hasClass('hftext')) {
             			$this.parent().parent().next().remove();
             		} else {
-            			$this.parent().parent().after('<div class="hftext"><form action="__CONTROLLER__/addComment" method="post" role="form" ><input type="hidden" name="articleurl" value="{$data.url}"  /> <input name="article_id" type="hidden"  value="{$Article.id}" /><input id="pid" type="hidden" name="pid" value="{$vo.id}"/> <div class="input-group home-from-box"><span class="input-group">昵称</span><input type="text" class="input-group name1" placeholder="昵称" name="username" value="{$username}"></div><div class="input-group"> <span class="input-group emotion2">表情</span>  </div><div class="input-group">  <textarea style="display: inline" class="input-group comment" id="content-text2" name="comment" rows="3" placeholder="请输入评论内容"></textarea>  </div><div class="submit">  <input style="width:100px;height:35px "  class="submit-btn" type="submit" value="提交"></div> </form></div>');
+            			$this.parent().parent().after('<div class="hftext"><div class="panel panel-default" style="text-align: left;"><div class="panel-body" style="background: beige;"><form action="__CONTROLLER__/addComment" method="post" role="form" ><input type="hidden" name="articleurl" value="{$data.url}"  /> <input name="article_id" type="hidden"  value="{$Article.id}" /><input id="pid" type="hidden" name="pid" value="{$vo.id}"/> <div class="form-group"><span class="input-group">Reply Window</span><input type="text" class="form-control" placeholder="Nickname" name="username" value="{$username}"></div><div class="input-group"> <span class="input-group emotion2"><img src="__ROOT__/Public/Face/1.gif"></span>  </div><div class="form-group">  <textarea style="display: inline" class="form-control" id="content-text2" name="comment" rows="3" placeholder="请输入评论内容"></textarea>  </div><div class="submit">  <input   class="btn btn-primary" type="submit" value="Submit"></div> </form></div></div></div>');
                             var v_id = $(e.target).attr('id');//获取元素id;
                             $("#pid").val(v_id);
                             $('.emotion2').qqFace({

@@ -1,10 +1,15 @@
 #bigbanner{background: url(../img/bacground.jpg) top center no-repeat; text-align: center;}
-.panel{text-align: center;margin-bottom: 0px;}
+.panel{text-align: center;margin-bottom: 0px;    margin-top: 10px;}
 .panel-body a{padding: 0 15px;}
 .panel-footer  a {padding:0 10px;}
 .panel-footer{border-top: 0px solid #ddd;}
 #containone{padding-top: 15px; padding-bottom: 1px;}
-#containone img{width: 320px;height: 220px;}
 .pagination li span{background: #ADD9FF;}
 .pagination li a span{    background-color: transparent;}
 .pagination li a span:hover{    background-color: transparent;}
+.qqFace{border:1px solid #ccc;padding:10px;background-color: #FFF;}
+.qqFace img{border:1px solid #ddd;padding:2px;margin:2px;cursor:pointer;}
+.qqFace img:hover{border-color:red}
+a,img,.submit-btn{cursor:pointer;}
+input[type='text']{border:1px solid #ccc;padding:2px}
+.emotion{color:red;cursor:pointer;}
