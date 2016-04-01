@@ -22,7 +22,7 @@
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">当前位置：后台首页</h3>
+              <h3 class="panel-title">当前位置：修改文章</h3>
             </div>
 
             <div class="panel-body">
@@ -32,7 +32,7 @@
                <form action="__CONTROLLER__/updateArticle" method="POST" class="form-horizontal" role="form"  enctype="multipart/form-data">
                  <input type="hidden" name="id" value="{$data.id}"  />
                  <div class="form-group">
-                   <legend>添加文章</legend>
+                   <legend>修改文章</legend>
 
                  </div>
 
@@ -42,6 +42,15 @@
                    </div>
                    <div class="col-sm-6">
                      <input type="text" name="articletitle" id="input" class="form-control" value="{$data.articletitle}">
+                   </div>
+                 </div>
+
+                 <div class="form-group">
+                   <div class="col-sm-2">
+                     文章链接
+                   </div>
+                   <div class="col-sm-6">
+                     <input type="text" name="url" id="input" class="form-control" value="{$data.url}">
                    </div>
                  </div>
 

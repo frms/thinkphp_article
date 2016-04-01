@@ -30,6 +30,7 @@ class pageController extends BaseController {
 		$data['pagetitle'] = I('pagetitle');
 		$data['desj'] = I('desj');
 		$data['pagecontent'] = I('pagecontent');
+		$data['url'] = I('url');
 		//$data['time'] = time();
 		if ($_FILES['pic']['tmp_name'] != "") {
 			$upload = new \Think\Upload(); // 实例化上传类
@@ -104,6 +105,7 @@ class pageController extends BaseController {
 		$data['pagetitle'] = I('pagetitle');
 		$data['desj'] = I('desj');
 		$data['pagecontent'] = I('pagecontent');
+		$data['url'] = I('url');
 		//$data['time'] = time();
 		if ($_FILES['pic']['tmp_name'] != "") {
 			$upload = new \Think\Upload(); // 实例化上传类

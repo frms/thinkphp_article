@@ -24,6 +24,7 @@
                     <div class="collapse">
                         <div class="well">
                             <form action="__CONTROLLER__/addComment" method="post" role="form" >
+                            
                                 <div class="input-group">
                                     <span class="input-group">昵称</span>
                                     <input type="text" class="name1 input-group" placeholder="昵称" name="username" value="{$username}">
@@ -91,25 +92,9 @@
                             });
                         }
 
-                        $(".submit-btn").click(function() {
-                            var $this = $(this);
-                            var name = $this.parent().siblings().children('.name1').val();
-                            var content = $this.parent().siblings().children('.comment').val();
-                            if (name == "" || content == "") {
-                                alert("昵称或者评论不能为空哦");
-                                return false;
-                            }
-                        });
+                        
                     });
-            $(".submit-btn").click(function() {
-                var $this = $(this);
-                var name = $this.parent().siblings().children('.name1').val();
-                var content = $this.parent().siblings().children('.comment').val();
-                if (name == "" || content == "") {
-                    alert("昵称或者评论不能为空哦");
-                    return false;
-                }
-            });
+          
         });
     </script>
 

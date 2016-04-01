@@ -30,6 +30,7 @@ class ArticleController extends BaseController {
 		$data['articletitle'] = I('articletitle');
 		$data['desj'] = I('desj');
 		$data['articlecontent'] = I('articlecontent');
+		$data['url'] = I('url');
 		//$data['time'] = time();
 		if ($_FILES['pic']['tmp_name'] != "") {
 			$upload = new \Think\Upload(); // 实例化上传类
@@ -104,6 +105,7 @@ class ArticleController extends BaseController {
 		$data['articletitle'] = I('articletitle');
 		$data['desj'] = I('desj');
 		$data['articlecontent'] = I('articlecontent');
+		$data['url'] = I('url');
 		//$data['time'] = time();
 		if ($_FILES['pic']['tmp_name'] != "") {
 			$upload = new \Think\Upload(); // 实例化上传类
