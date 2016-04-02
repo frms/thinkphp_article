@@ -33,97 +33,34 @@
 		<div class="row">
 			<div class="col-sm-12">
 
-				<div class="panel panel-default" style="text-align: left;">
-					<div class="panel-heading">Comment</div>
-					<div class="panel-body">
-						<div class="collapse1">
-							<div class="well">
-								<form action="__CONTROLLER__/addComment" method="post" role="form"  enctype="multipart/form-data">
-									<input type="hidden" name="articleurl" value="{$data.url}"  />
-									<div class="form-group">
-							
-										<input type="text" class="form-control" placeholder="Nickname" name="username" value="{$username}">
-										<input type="hidden" class=" input-group" placeholder="" name="pid" value="0">
-									</div>
-									<div class="form-group">
-										<span class="emotion input-group"><img src="__ROOT__/Public/Face/1.gif"></span>
-										<textarea class="form-control" rows="3" id="content-text" name="comment" placeholder="Please enter comments"></textarea>
-									</div>
-									<div class="form-group">
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
 
+s.src = 'https://amoee.disqus.com/embed.js';
 
-										<button class="btn btn-primary" type="submit" style="width:100px;height:35px ">Submit</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+			</div>
+		</div>
+	</div>
+	<!-- comment end -->
 
-
-				<input type="hidden" name="pid" value="{$vo.author}"/>			
-				<div class="panel panel-default"  style="text-align: left;">
-					<div class="panel-heading">
-						<h3 class="panel-title">Reply Display</h3>
-					</div>
-					<div class="panel-body" >
-						<volist name="commentList" id="vo">
-
-							<div class="panel <if condition="($vo['level'] eq 1)">panel-info <else /> panel-default</if> " style="margin-left:{$vo['level']-1}cm;text-align: left;">
-								<div class="panel-heading">
-									<span class="user">
-										<if condition="($vo.pauthor eq NULL)">{$vo.author}
-											<else /> {$vo.author}<span class="black" style="color: #000101">Reply</span>{$vo.pauthor}
-										</if>
-									</span><a class="hf" id="{$vo.id}" style="float: right">Reply</a><span  class="hftime">{$vo.time|date="Y-m-d",###}</span>
-								</div>
-								<div class="panel-body">{$vo.content|reFace}</div>
-							</div>
-
-							
-
-						</volist>
-						<hr>
-					</div>
-				</div>
-
-				<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
-				<script type="text/javascript" src="__PUBLIC__/js/jquery.qqFace.js" ></script>
-				<script type="text/javascript">
-					$(function() {
-						$('.emotion').qqFace({
-                id: 'facebox', //表情ID
-                assign: 'content-text', //赋予到具体位置
-                path: '__PUBLIC__/Face/'    //表情路径
-            });
-            $(".hf").click(//点击Reply按钮事件
-            	function(e) {
-            		var $this = $(this);
-            		if ($this.parent().parent().next().hasClass('hftext')) {
-            			$this.parent().parent().next().remove();
-            		} else {
-            			$this.parent().parent().after('<div class="hftext"><div class="panel panel-default" style="text-align: left;"><div class="panel-body" style="background: beige;"><form action="__CONTROLLER__/addComment" method="post" role="form" ><input type="hidden" name="articleurl" value="{$data.url}"  /> <input name="article_id" type="hidden"  value="{$Article.id}" /><input id="pid" type="hidden" name="pid" value="{$vo.id}"/> <div class="form-group"><span class="input-group">Reply Window</span><input type="text" class="form-control" placeholder="Nickname" name="username" value="{$username}"></div><div class="input-group"> <span class="input-group emotion2"><img src="__ROOT__/Public/Face/1.gif"></span>  </div><div class="form-group">  <textarea style="display: inline" class="form-control" id="content-text2" name="comment" rows="3" placeholder="请输入评论内容"></textarea>  </div><div class="submit">  <input   class="btn btn-primary" type="submit" value="Submit"></div> </form></div></div></div>');
-                            var v_id = $(e.target).attr('id');//获取元素id;
-                            $("#pid").val(v_id);
-                            $('.emotion2').qqFace({
-                                id: 'facebox', //表情ID
-                                assign: 'content-text2', //赋予到具体位置
-                                path: '__PUBLIC__/Face/'   //表情路径
-                            });
-                        }
-
-                        
-                    });
-            
-        });
-    </script>
-</div>
-</div>
-</div>
-<!-- comment end -->
-
-<!-- foot -->
-<include file="Main/foot" />
+	<!-- foot -->
+	<include file="Main/foot" />
 
 
 
