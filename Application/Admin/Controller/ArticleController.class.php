@@ -21,7 +21,7 @@ class ArticleController extends BaseController {
 		$Page->setConfig('next', '下一页');
 		$Page->setConfig('theme', "<ul class='pagination'></li><li>%FIRST%</li><li>%UP_PAGE%</li><li>%LINK_PAGE%</li><li>%DOWN_PAGE%</li><li>%END%</li><li><a> %HEADER%  %NOW_PAGE%/%TOTAL_PAGE% 页</a></ul>");
 		$show = $Page->show(); // 分页显示输出// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-		$list = $User->order('id desc')->limit($Page->firstRow . ',' . $Page->listRows)->relation(true)->select();
+		$list = $User->order('id desc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
 		$this->assign('list', $list); // 赋值数据集
 		$this->assign('page', $show); // 赋值分页输出
 		$this->display('showlist');

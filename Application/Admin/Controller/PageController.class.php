@@ -2,7 +2,8 @@
 namespace Admin\Controller;
 use Think\Controller;
 
-class pageController extends BaseController {
+class PageController extends BaseController {
+
 	public function add() {
 
 		$type = D('page');
