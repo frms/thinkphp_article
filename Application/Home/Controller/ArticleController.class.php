@@ -11,7 +11,7 @@ class ArticleController extends BaseController {
 		if ($data) {
 			$this->assign('data', $data); // 模板变量赋值
 		} else {
-			$this->error('数据错误');
+			$this->error('Data Error');
 		}
 
 		$comment = $this->CommentList($pid = 0, $commentList = array(), $spac = 0);
@@ -38,10 +38,10 @@ class ArticleController extends BaseController {
 		} else {
 			$add = $comment->add();
 			if ($add) {
-				$this->success('评论成功');
+				$this->success('Comment Success');
 
 			} else {
-				$this->error('评论失败');
+				$this->error('Comment Failed');
 			}
 		}
 
