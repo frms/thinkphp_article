@@ -2,8 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 
-class PageController extends BaseController {
-
+class pageController extends BaseController {
 	public function add() {
 
 		$type = D('page');

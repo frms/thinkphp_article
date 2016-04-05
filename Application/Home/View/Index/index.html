@@ -39,9 +39,24 @@
 				{$page}
 			</div>
 			
+
 		</div>
+
 	</div>
 	
+
+	<div class="container" >
+		<div class="row">
+			<div class="col-sm-12" >
+				<div class="panel panel-info" style="text-align: left;">
+				  <div class="panel-heading">Notice:</div>
+				  <div class="panel-body">
+				    {$notice.noticecontent|htmlspecialchars_decode|stripslashes}
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- 引入页脚 -->
 	<include file="Main/foot" />

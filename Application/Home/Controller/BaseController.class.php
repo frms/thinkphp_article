@@ -18,6 +18,10 @@ class BaseController extends Controller {
 		$page = $page->where('isshow = 1')->select();
 		$this->assign('pages', $page);
 
+		$notice = M("notice");
+		$notice = $notice->where('id = 1')->find();
+		$this->assign('notice', $notice);
+
 	}
 
 }
